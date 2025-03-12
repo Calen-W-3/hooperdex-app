@@ -1,34 +1,44 @@
-import { useState } from 'react'
-import reactLogo from './assets/react.svg'
-import viteLogo from '/vite.svg'
-import './App.css'
+import { useState } from 'react';
+import { useEffect } from 'react';
+import { teams } from './lib/mockData';
+
+import Button from '@mui/material/Button';
+import { Card, CardContent, Container, Typography } from '@mui/material';
+import { CardMedia, Grid } from '@material-ui/core';
+
 
 function App() {
-  const [count, setCount] = useState(0)
+  
+  // const [data, setData] = useState([]);
+
+  // useEffect(() => {
+  //   const fetchData = async () => {
+  //     try{
+  //       const resp = await fetch('')
+  //       const json = await resp.json()
+  //       console.log(json)
+  //       setData(json.teams)
+  //     } catch (error) {
+  //       console.log('There was an error: ', error)
+  //     }
+  //   };
+
+  //   fetchData();
+  // }, [])
+
 
   return (
-    <>
-      <div>
-        <a href="https://vite.dev" target="_blank">
-          <img src={viteLogo} className="logo" alt="Vite logo" />
-        </a>
-        <a href="https://react.dev" target="_blank">
-          <img src={reactLogo} className="logo react" alt="React logo" />
-        </a>
-      </div>
-      <h1>Vite + React</h1>
-      <div className="card">
-        <button onClick={() => setCount((count) => count + 1)}>
-          count is {count}
-        </button>
-        <p>
-          Edit <code>src/App.jsx</code> and save to test HMR
-        </p>
-      </div>
-      <p className="read-the-docs">
-        Click on the Vite and React logos to learn more
-      </p>
-    </>
+    <Grid container spacing={2}>
+      {teams.map((team) => (
+        <Card>
+          <CardMedia component="img" height={140} image={team.strBadge}></CardMedia>
+          <CardContent>
+          <Typography variant="p">{team.strTeam}</Typography>
+          <Typography color="textSecondary">{team.strStadium}</Typography>
+          </CardContent>
+        </Card>
+      ))}
+    </Grid>
   )
 }
 
