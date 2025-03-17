@@ -1,0 +1,79 @@
+import { useState } from 'react';
+import { useEffect } from 'react';
+import { Card, CardContent, Typography, CardMedia, Container } from '@mui/material';
+import Grid from '@mui/material/Grid2';
+import TeamCard from '../Card/TeamCard.component';
+
+
+function TeamList() {
+    const [teams, setTeams] = useState([]);
+  
+    useEffect(() => {
+      const fetchData = async () => {
+        try{
+          const resp = await fetch('https://www.thesportsdb.com/api/v1/json/3/search_all_teams.php?l=nba')
+          const json = await resp.json()
+          console.log(json)
+          const data = json.teams
+          setTeams(data)
+
+          console.log(data)
+          
+        } catch (error) {
+          console.log('There was an error: ', error)
+        }
+      };
+  
+      fetchData();
+    }, [])
+
+    const WesternTeams = teams.filter((team) => team.strDescriptionEN.includes("Western"))
+    const EasternTeams = teams.filter((team) => team.strDescriptionEN.includes("Eastern"))
+    console.log(WesternTeams)
+    console.log(EasternTeams)
+
+    const missingTeam = ["Detroit Pistons"];
+
+    missingTeam.forEach(teamName => {
+      const team = teams.find(team => team.strTeam === teamName );
+      if (team) {
+        EasternTeams.splice(6, 0, team)
+      }
+    })
+
+    if(!teams){
+      return <Typography>Loading...</Typography>
+    }
+    
+  return(
+    <Container sx={{display: 'flex', alignItems: 'center', justifyContent: 'space-evenly', mt: 4 }}>
+      <Grid container spacing={4} sx={{}}>
+        <Grid item>
+          <Typography variant='h5' sx={{ mb: 2 }}>Western Conference</Typography>
+          {WesternTeams.map((team) => (
+            <TeamCard team={team}/>
+          ))}
+        </Grid>
+      </Grid>
+
+      <Grid container spacing={4} sx={{}}>
+        <Grid item>
+          <Typography variant='h5' sx={{ mb: 2 }}>Eastern Conference</Typography>
+          {EasternTeams.map((team) => (
+            <TeamCard team={team}/>
+          ))}
+        </Grid>
+      </Grid>
+    </Container>
+
+
+
+    // <Grid container spacing={4}>
+    //   {teams.map((team) => {
+    //     return (<TeamCard team={team}/>)
+    //   })}
+    // </Grid>
+  )
+}
+
+export default TeamList
