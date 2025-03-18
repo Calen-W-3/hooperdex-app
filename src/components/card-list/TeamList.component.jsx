@@ -3,6 +3,8 @@ import { useEffect } from 'react';
 import { Card, CardContent, Typography, CardMedia, Container } from '@mui/material';
 import Grid from '@mui/material/Grid2';
 import TeamCard from '../Card/TeamCard.component';
+import TeamsMap from '../TeamsMap/TeamsMap.component';
+import { stadiumLocations } from '../../lib/stadiumLocations';
 
 
 function TeamList() {
@@ -13,11 +15,22 @@ function TeamList() {
         try{
           const resp = await fetch('https://www.thesportsdb.com/api/v1/json/3/search_all_teams.php?l=nba')
           const json = await resp.json()
-          console.log(json)
           const data = json.teams
-          setTeams(data)
 
-          console.log(data)
+          const mergedData = data.map((team => {
+            const stadium = stadiumLocations.find(s => s.team === team.strTeam)
+
+            return {
+              ...team,
+              coordinates: stadium ? stadium.coordinates : null,
+              arena: stadium ? stadium.arena : null,
+              city: stadium ? stadium.city : null,
+            };
+          }));
+
+          setTeams(mergedData)
+
+          console.log(mergedData)
           
         } catch (error) {
           console.log('There was an error: ', error)
@@ -29,8 +42,9 @@ function TeamList() {
 
     const WesternTeams = teams.filter((team) => team.strDescriptionEN.includes("Western"))
     const EasternTeams = teams.filter((team) => team.strDescriptionEN.includes("Eastern"))
-    console.log(WesternTeams)
-    console.log(EasternTeams)
+    // console.log(WesternTeams)
+    // console.log(EasternTeams)
+    
 
     const missingTeam = ["Detroit Pistons"];
 
@@ -46,6 +60,8 @@ function TeamList() {
     }
     
   return(
+
+    <>
     <Container sx={{display: 'flex', alignItems: 'center', justifyContent: 'space-evenly', mt: 4 }}>
       <Grid container spacing={4} sx={{}}>
         <Grid item>
@@ -66,13 +82,8 @@ function TeamList() {
       </Grid>
     </Container>
 
-
-
-    // <Grid container spacing={4}>
-    //   {teams.map((team) => {
-    //     return (<TeamCard team={team}/>)
-    //   })}
-    // </Grid>
+    <TeamsMap teams={teams}/>
+    </>
   )
 }
 

@@ -5,11 +5,7 @@ import TeamsMap from './components/TeamsMap/TeamsMap.component';
 function App() {
   
   return (
-
-    <>
     <TeamList />
-    <TeamsMap />
-    </>
   )
 
 }
