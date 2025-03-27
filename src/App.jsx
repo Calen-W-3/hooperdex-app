@@ -1,11 +1,19 @@
-import TeamList from './components/card-list/TeamList.component';
-import TeamsMap from './components/TeamsMap/TeamsMap.component';
+import TeamList from './routes/map/TeamList.component';
+import AboutPage from './routes/home/about-page.component';
+import Navbar from './routes/navigation/navbar.component';
+
+import { Routes, Route } from 'react-router';
 
 
 function App() {
   
   return (
-    <TeamList />
+    <Routes>
+      <Route path='/' element={<Navbar />}>
+        <Route index element={<AboutPage />} />
+        <Route path='/map' element={<TeamList />} />
+      </Route>
+    </Routes>
   )
 
 }

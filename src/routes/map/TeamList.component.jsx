@@ -2,8 +2,8 @@ import { useState } from 'react';
 import { useEffect } from 'react';
 import { Card, CardContent, Typography, CardMedia, Container } from '@mui/material';
 import Grid from '@mui/material/Grid2';
-import TeamCard from '../Card/TeamCard.component';
-import TeamsMap from '../TeamsMap/TeamsMap.component';
+import TeamCard from '../../components/Card/TeamCard.component';
+import TeamsMap from '../../components/TeamsMap/TeamsMap.component';
 import { stadiumLocations } from '../../lib/stadiumLocations';
 
 
