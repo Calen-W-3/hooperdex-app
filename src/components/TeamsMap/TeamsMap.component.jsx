@@ -1,4 +1,5 @@
 import { MapContainer, TileLayer, Marker, Popup } from "react-leaflet";
+import { Link } from "@mui/material";
 import Grid from '@mui/material/Grid2';
 import "leaflet/dist/leaflet.css";
 import L from 'leaflet'
@@ -28,6 +29,7 @@ const TeamsMap = ({ teams }) => {
           <Popup>
             <h3>{team.strTeam}</h3>
             <h4>{team.arena}</h4>
+            <h4><Link style={{ textDecoration: "none" }} target="_blank" href={`https://${team.strWebsite}`}>Team Website</Link></h4>
             </Popup>
         </Marker>
       ))}

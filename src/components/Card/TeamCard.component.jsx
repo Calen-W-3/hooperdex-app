@@ -23,13 +23,13 @@ const TeamCard = ({ team }) => {
           </Grid>
           <Grid item>|</Grid>
           <Grid item>
-            <Link target="_blank" href={`https://${team.strYoutube}/videos`}>
+            <Link style={{ textDecoration: "none" }} target="_blank" href={`https://${team.strYoutube}/videos`}>
               Highlights
             </Link>
           </Grid>
           <Grid item>|</Grid>
           <Grid item>
-            <Link target="_blank" href={`https://www.espn.com/nba/team/stats/_/name/${team.strTeamShort.toLowerCase()}/${team.strTeam.replace(/\s+/g, "-")}`}>Statistics</Link>
+            <Link style={{ textDecoration: "none" }} target="_blank" href={`https://www.espn.com/nba/team/stats/_/name/${team.strTeamShort.toLowerCase()}/${team.strTeam.replace(/\s+/g, "-")}`}>Statistics</Link>
           </Grid>
 
         </Grid>
