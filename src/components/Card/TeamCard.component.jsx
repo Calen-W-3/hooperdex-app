@@ -17,7 +17,7 @@ const TeamCard = ({ team }) => {
 
         <Grid container spacing={1} sx={{ mt: 1 }}>
           <Grid item>
-            <Link target="_blank" href={`https://www.espn.com/nba/team/schedule/_/name/${team.strTeamShort.toLowerCase()}/${team.strTeam.toLowerCase().replace(/\s+/g, "-")}`}>
+            <Link style={{ textDecoration: "none" }} target="_blank" href={`https://www.espn.com/nba/team/schedule/_/name/${team.strTeamShort.toLowerCase()}/${team.strTeam.toLowerCase().replace(/\s+/g, "-")}`}>
               Schedule
             </Link>
           </Grid>
