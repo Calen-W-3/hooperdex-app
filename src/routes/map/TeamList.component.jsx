@@ -66,7 +66,7 @@ function TeamList() {
     <>
       {isLoading ? (
         <Box display="flex" justifyContent="center" alignItems="center" height="100vh">
-          <CircularProgress />
+          <CircularProgress sx={{color: '#043C6B'}} />
         </Box>
       ) : (
         <>
@@ -89,7 +89,9 @@ function TeamList() {
               </Grid>
             </Grid>
           </Container>
+          
           <TeamsMap teams={teams} />
+          
         </>
       )}
     </>
