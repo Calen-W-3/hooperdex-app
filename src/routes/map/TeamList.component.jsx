@@ -70,7 +70,14 @@ function TeamList() {
         </Box>
       ) : (
         <>
-          <Container sx={{ display: 'flex', alignItems: 'center', justifyContent: 'space-evenly', mt: 4 }}>
+            <Container sx={{
+              display: 'flex',
+              flexDirection: { xs: 'column', sm: 'column', md: 'row' }, // Stack on small screens, row on medium and up
+              alignItems: 'flex-start',
+              justifyContent: 'space-evenly',
+              mt: 4,
+              gap: 4 // Add spacing between columns when stacked
+            }}>
             <Grid container spacing={4} sx={{}}>
               <Grid item>
                 <Typography variant='h5' sx={{ mb: 2 }}>Western Conference</Typography>
