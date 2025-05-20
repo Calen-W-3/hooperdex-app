@@ -13,11 +13,13 @@ const Navbar = () => {
             HooperDex
           </Typography>
           
-          <Button sx={{color: 'black'}}><Link to="/" style={{ textDecoration: "none", color: "inherit" }}>Home</Link></Button>
-          <Button sx={{color: 'black'}}><Link to="/map" style={{ textDecoration: "none", color: "inherit" }}>Map</Link></Button>
-          {/* <Button sx={{color: 'black'}}>My Teams</Button> */}
-        </Toolbar>
-      </AppBar>
+            <Button sx={{ color: 'black' }}><Link to="/" style={{ textDecoration: "none", color: "inherit" }}>Home</Link></Button>
+            <Button sx={{ color: 'black' }}><Link to="/map" style={{ textDecoration: "none", color: "inherit" }}>Map</Link></Button>
+            <Button sx={{ color: 'black' }}><Link to="/news-feed" style={{ textDecoration: "none", color: "inherit" }}>League News</Link></Button>
+
+            {/* <Button sx={{color: 'black'}}>My Teams</Button> */}
+          </Toolbar>
+        </AppBar>
 
       <Toolbar />
     </Box>
