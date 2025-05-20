@@ -6,6 +6,7 @@ import './index.css'
 
 import { Routes, Route } from 'react-router';
 import theme from './theme';
+import NewsFeed from './routes/news-feed/news-feed.component';
 
 
 function App() {
@@ -16,6 +17,7 @@ function App() {
         <Route path='/' element={<Navbar />}>
           <Route index element={<AboutPage />} />
           <Route path='/map' element={<TeamList />} />
+          <Route path='/news-feed' element={<NewsFeed />} />
         </Route>
       </Routes>
     </ThemeProvider>
