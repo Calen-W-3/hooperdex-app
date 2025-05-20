@@ -1,18 +1,7 @@
 import { AppBar, Toolbar, Typography, Button, Box } from "@mui/material";
-import { Outlet, useLocation, useNavigate } from "react-router";
+import { Outlet, Link} from "react-router";
 
 const Navbar = () => {
-  const location = useLocation();
-  const navigate = useNavigate();
-
-  //Add smooth scrolling to top of page
-  const handleNavClick = (to) => {
-    if (location.pathname === to) {
-      window.scrollTo({ top: 0, behavior: 'smooth' });
-    } else {
-      navigate(to);
-    }
-  };
 
   return (
     <>
@@ -24,7 +13,6 @@ const Navbar = () => {
             HooperDex
           </Typography>
           
-
             <Button sx={{ color: 'black' }}><Link to="/" style={{ textDecoration: "none", color: "inherit" }}>Home</Link></Button>
             <Button sx={{ color: 'black' }}><Link to="/map" style={{ textDecoration: "none", color: "inherit" }}>Map</Link></Button>
             <Button sx={{ color: 'black' }}><Link to="/news-feed" style={{ textDecoration: "none", color: "inherit" }}>League News</Link></Button>
