@@ -1,6 +1,6 @@
 import { MapContainer, TileLayer, Marker, Popup } from "react-leaflet";
 import { Link, useMediaQuery, useTheme } from "@mui/material";
-import Grid from '@mui/material/Grid2';
+import Grid from '@mui/material/Grid';
 import "leaflet/dist/leaflet.css";
 import L from 'leaflet'
 

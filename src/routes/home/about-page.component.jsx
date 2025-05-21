@@ -1,5 +1,5 @@
 import { AppBar, Toolbar, Typography, Button, Container, Box } from "@mui/material";
-import Grid from '@mui/material/Grid2';
+import Grid from '@mui/material/Grid';
 import { Link } from "react-router";
 import Logo from '../../assets/hooperdex_logo.png'
 import Background from '../../assets/bball_background.jpg'

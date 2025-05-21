@@ -2,7 +2,7 @@ import { useState } from 'react';
 import { useEffect } from 'react';
 import { Card, CardContent, Typography, CardMedia, Container, Box } from '@mui/material';
 import CircularProgress from '@mui/material/CircularProgress';
-import Grid from '@mui/material/Grid2';
+import Grid from '@mui/material/Grid';
 import TeamCard from '../../components/Card/TeamCard.component';
 import TeamsMap from '../../components/TeamsMap/TeamsMap.component';
 import { stadiumLocations } from '../../lib/stadiumLocations';
