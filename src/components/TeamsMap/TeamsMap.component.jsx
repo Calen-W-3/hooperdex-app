@@ -1,12 +1,16 @@
 import { MapContainer, TileLayer, Marker, Popup } from "react-leaflet";
-import { Link } from "@mui/material";
+import { Link, useMediaQuery, useTheme } from "@mui/material";
 import Grid from '@mui/material/Grid2';
 import "leaflet/dist/leaflet.css";
 import L from 'leaflet'
 
 
 
+
 const TeamsMap = ({ teams }) => {
+
+  const theme = useTheme();
+  const isMobile = useMediaQuery(theme.breakpoints.down('sm'));
 
   const customIcon = (badgeUrl) => {
     return L.icon({
@@ -17,8 +21,8 @@ const TeamsMap = ({ teams }) => {
 
 
   return (
-    <Grid container justifyContent="center" alignItems="center" sx={{height: '500', width: '500'}}>
-      <MapContainer center={[40.11256837189704, -100.54488716132614]} zoom={3} style={{ height: 500, width: 500 }}>
+    <Grid container justifyContent="center" alignItems="center" sx={{height: '500', width: '500' }}>
+      <MapContainer center={[40.11256837189704, -100.54488716132614]} zoom={3} style={{ height: isMobile ? 350 : 500, width: 500 }}>
         <TileLayer
           attribution='&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
           url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"
